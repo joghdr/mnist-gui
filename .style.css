@@ -1,0 +1,87 @@
+QWidget,
+QPushButton,
+QCheckBox,
+QComboBox,
+QSpinBox,
+QDoubleSpinBox,
+QLineEdit,
+QLabel,
+QMainWindow,
+QTabWidget,
+QTabWidget>QWidget
+{
+    background-color: rgb(14, 15, 31);
+    color: #FFFFF0;
+    font: Sans;
+    font-size:14px;
+    border: 0px;
+}
+
+
+
+QPushButton:hover,
+QCheckBox:hover,
+QComboBox:hover,
+QSpinBox:hover,
+QDoubleSpinBox:hover,
+QLineEdit:hover,
+QTabBar::tab:selected {
+
+    background-color: rgb(21, 23, 79);
+}
+
+QLabel {
+
+    font-weight: 400
+
+}
+
+QPushButton {
+    border: 1px solid grey;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 22px;
+    font-weight: 500;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+
+}
+
+QPushButton:pressed    {
+    background-color: #300A24;
+    border-style: inset;
+}
+
+QComboBox {
+    padding-left: 100px;
+    background: rgb(14, 15, 31);
+    selection-background-color: rgb(21, 23, 79);
+}
+
+:!enabled, QTabBar::tab:!selected {
+    color:  rgb(131, 137, 201);
+}
+
+QComboBox QAbstractItemView {
+    border: 1px solid darkgray;
+    background: rgb(14, 15, 31);
+    padding-left: 100px;
+}
+
+QCheckBox::indicator{
+    border : 1px solid rgb(47, 52, 106);
+    width : 10px;
+    height : 10px;
+    border-radius :6px;
+    background-color: rgb(47, 52, 106);
+}
+
+QCheckBox::indicator:checked{
+    border : 1px solid rgb(153, 0, 38);
+    width : 10px;
+    height : 10px;
+    border-radius :6px;
+    background-color: rgb(153, 0, 38);
+
+}
+
+
