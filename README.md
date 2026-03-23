@@ -54,7 +54,7 @@ cd mnist-gui
 pip install numpy pandas pyqt5 matplotlib
 
 3. Run the application:
-python main.py
+python gui.py
 
 ---
 Developed as a deep-dive into Neural Network architecture and Scientific Software Design.
