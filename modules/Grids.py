@@ -133,7 +133,7 @@ class Grids:
         self.__setup_layer_grids(pts)
         self.__setup_DF_grid(pts)
 
-    def weights_have_dimensions_of(self, weights):   # previously weights_have_dimensions_of
+    def weights_have_dimensions_of(self, weights):
         same_dimensions = False
         if not isinstance(weights, list):
             print(f'# weights are not a list, ignoring')
