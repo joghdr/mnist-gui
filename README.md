@@ -1,4 +1,4 @@
-# Multilayer Perceptron (MLP) Diagnostic Workbench
+# NumPy MLP Implementation and PyQt5 Error Inspection Tool
 
 Numpy-based implementation of a Multilayer Perceptron (MLP) engine and diagnostic GUI. This system provides a transparent environment for architectural experimentation with up to three hidden layers, bypassing high-level ML frameworks to expose the underlying mechanics of gradient descent and matrix calculus.
 
@@ -51,17 +51,21 @@ Numpy-based implementation of a Multilayer Perceptron (MLP) engine and diagnosti
 
 ## Installation & Usage
 1. Clone the repository:
-  ```
+  ```bash
   git clone https://github.com/yourusername/mnist-gui.git
   cd mnist-gui
   ```
 
 
 2. Install dependencies:
-  ```pip install numpy pandas PyQt5 matplotlib```
+  ```bash
+  pip install numpy pandas PyQt5 matplotlib
+  ```
 
 3. Run the application:
-  ```python main.py```
+  ```bash
+  python main.py
+  ```
 
 ---
 *A NumPy-based MLP implementation focused on Network Architecture and State Monitoring.*
