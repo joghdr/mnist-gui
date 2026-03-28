@@ -64,7 +64,7 @@ Numpy-based implementation of a Multilayer Perceptron (MLP) engine and diagnosti
 
 3. Run the application:
   ```bash
-  python main.py
+  python gui.py
   ```
 
 ---
