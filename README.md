@@ -31,7 +31,7 @@ Numpy-based implementation of a Multilayer Perceptron (MLP) engine and diagnosti
 ### 2. Experimental Sandbox (gui.py)
 * **Feature & Gradient Monitor**: Provides real-time heatmap rendering of the input-to-hidden weights and their corresponding gradients to visually inspect the network state and weight evolution.
 
-* **Model Audit: Provides interface to browse training and validation results.
+* **Model Audit**: Provides interface to browse training and validation results.
 
 * **Hyperparameter Configuration**: A dedicated interface for defining learning rates, batch sizes, and layer architectures, enabling rapid iteration without manual script modification.
 
