@@ -1,8 +1,7 @@
 import sys
 import numpy as np
 #### my modules
-sys.path.insert(0, "./modules/")
-from functions import softmax_f
+from core.functions import softmax_f
 
 def forward_step(W, A_before, activation_f, activation_df):
     Z     = W @ A_before
