@@ -1,6 +1,5 @@
 import sys
 #### my modules
-sys.path.insert(0, "./modules/")
 
 INPUT_DIMENSION = 28*28
 OUTPUT_DIMENSION = 10

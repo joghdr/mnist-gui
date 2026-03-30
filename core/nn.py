@@ -5,12 +5,12 @@ import uuid
 from   pathlib import Path
 import numpy as np
 #### my modules
-sys.path.insert(0, "./modules/")
-from Grids import Grids
-from Config import Config
-from functions import logit, relu, cross_entropy, activation_dict, cost_dict
-from backpropagation import forward_step_last, forward_step, backward_last_layer, backward_step
-import load
+from core.Grids import Grids
+from core.Config import Config
+import core.load as load
+# from core import Grids, Config, load
+from core.functions import logit, relu, cross_entropy, activation_dict, cost_dict
+from core.backpropagation import forward_step_last, forward_step, backward_last_layer, backward_step
 
 CACHE_DIR = '.cache/'
 

@@ -35,11 +35,10 @@ from matplotlib.backends.backend_qt5agg import FigureCanvas, NavigationToolbar2Q
 from matplotlib.figure import Figure
 import matplotlib as mpl
 #### my modules
-sys.path.insert(0, "./modules/")
-from Config import Config
-from functions import logit, relu, cross_entropy, activation_dict, cost_dict
-from nn import nn
-import plot_settings
+from core.Config import Config
+from core.nn import nn
+from core import plot_settings
+from core.functions import logit, relu, cross_entropy, activation_dict, cost_dict
 
 PLOT_COST_WIDTH = 450
 PLOT_COST_HEIGHT = 400

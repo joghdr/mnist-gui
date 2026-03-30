@@ -1,8 +1,7 @@
 import sys
 import numpy as np
 #### my modules
-sys.path.insert(0, "./modules/")
-from Config import Config
+from core.Config import Config
 
 class Grids:
     def __init__(self, config=None):

@@ -2,8 +2,7 @@ import numpy as np
 import pandas as pd
 import sys
 #### my modules
-sys.path.insert(0, "./modules/")
-from Config import DIGITS, SAMPLE, SAMPLE_TEST, RATIO, BATCH_SIZE
+from core.Config import DIGITS, SAMPLE, SAMPLE_TEST, RATIO, BATCH_SIZE
 dir_data = './data/'
 
 
