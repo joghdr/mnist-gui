@@ -13,7 +13,7 @@ PRINT_STEPS = 10000000
 LEARNING_RATE = 0.001
 ACTIVATION_HIDDEN = 'ReLu'
 COST = 'cross_entropy'
-DIGITS = range(10)
+DIGITS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 class Config():
     def __init__(self,
