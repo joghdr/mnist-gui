@@ -2,6 +2,8 @@
 import sys
 import time
 import numpy as np
+
+
 from PyQt5.QtWidgets import (
     QApplication,
     QCheckBox,
@@ -35,13 +37,16 @@ from matplotlib.backends.backend_qt5agg import FigureCanvas, NavigationToolbar2Q
 from matplotlib.figure import Figure
 import matplotlib as mpl
 #### my modules
+
+
 from core.Config import Config
 from core.nn import nn
 from core import plot_settings
 from core.functions import logit, relu, cross_entropy, activation_dict, cost_dict
+from ui.dashboard_panel.cost.cost_view import CostWidget
+from ui.dashboard_panel.accuracy.accuracy_view import AccuracyWidget
+from ui.abstract.base_plot import PLOT_COST_HEIGHT, PLOT_COST_WIDTH
 
-PLOT_COST_WIDTH = 450
-PLOT_COST_HEIGHT = 400
 PLOT_TEST_WIDTH = 650
 PLOT_TEST_HEIGHT = 650
 CONTROL_PANEL_WIDTH = 500
@@ -245,88 +250,6 @@ class PlotFilterWidget(QWidget):
         self.layout.addWidget(self.canvas)
         self.setLayout(self.layout)
         self.setFixedSize(PLOT_TEST_WIDTH, PLOT_TEST_HEIGHT)
-
-class NavigationToolbarWhiteIcon(NavigationToolbar2QT):
-
-    def white_image(mpl_icon_file_id):
-        image_dir = '/home/jogh/data_science/python/nn/translational_symmetry/.images'
-        return '/'.join([image_dir, mpl_icon_file_id])
-
-    toolitems = (
-        ('Home', 'Reset original view', white_image('home'), 'home'),
-        # ('Back', 'Back to previous view', white_image('back'), 'back'),
-        # ('Forward', 'Forward to next view', white_image('forward'), 'forward'),
-        (None, None, None, None),
-        ('Pan',
-         'Left button pans, Right button zooms\n'
-         'x/y fixes axis, CTRL fixes aspect',
-         white_image('move'), 'pan'),
-        ('Zoom', 'Zoom to rectangle\nx/y fixes axis', white_image('zoom_to_rect'), 'zoom'),
-        # ('Subplots', 'Configure subplots', white_image('subplots'), 'configure_subplots'),
-        # ("Customize", "Edit axis, curve and image parameters",
-         # white_image("qt4_editor_options"), "edit_parameters"),
-        (None, None, None, None),
-        ('Save', 'Save the figure', white_image('filesave'), 'save_figure'),
-      )
-
-    def __init__(self, canvas, parent=None, coordinates=True):
-        super().__init__(canvas, parent, coordinates)
-
-class PlotLineWidget(QWidget):
-    def __init__(self, parent, **kwargs):
-        super().__init__(parent)
-        self.kwargs = kwargs
-        epochs = self.parent().control_panel.config_panel.config.epochs
-        self.layout_top = QHBoxLayout()
-        self.layout = QVBoxLayout()
-        self.canvas = FigureCanvas()
-        self.ax = self.canvas.figure.add_subplot(111)
-        self.init_axes(epochs)
-        self.toolbar = NavigationToolbarWhiteIcon(canvas=self.canvas, parent=self)
-        self.layout_top.addWidget(self.toolbar)
-        self.layout.addLayout(self.layout_top)
-        self.layout.addWidget(self.canvas)
-        self.setLayout(self.layout)
-        self.setFixedHeight(PLOT_COST_HEIGHT)
-        self.setFixedWidth(PLOT_COST_WIDTH)
-
-    def init_axes(self, epochs):
-        self.ax.clear()
-        self.ax.set_xlim([0, epochs])
-        self.ax.set_ylim(self.kwargs['ylim'])
-        # self.ax.set_yscale('log')
-        self.ax.grid(True)
-        self.ax.grid(which="minor")
-        self.ax.set(xlabel=self.kwargs.get('xlabel'), ylabel=self.kwargs.get('ylabel'))
-        self.canvas.figure.set_layout_engine('constrained')
-        x = np.arange(1, epochs + 1)
-        y = np.full(epochs, None)
-        self.line_train, = self.ax.plot(x, y, label='training')
-        self.line_validation, = self.ax.plot(x, y, label='validation')
-        self.ax.legend()
-
-    def update_plot(self, model):
-        print(f'PlotLineWidget.update_plot not implemented')
-
-class CostWidget(PlotLineWidget):
-    def __init__(self, parent, **kwargs):
-        super().__init__(parent=parent, **kwargs)
-
-    def update_plot(self, model):
-        self.line_train.set_ydata(model.C_train)
-        self.line_validation.set_ydata(model.C_validation)
-        self.canvas.draw_idle()
-
-class AccuracyWidget(PlotLineWidget):
-    def __init__(self, parent, **kwargs):
-        super().__init__(parent=parent, **kwargs)
-        self.ax.legend(loc='lower right')
-
-    def update_plot(self, model):
-        self.line_train.set_ydata(model.Acc_train)
-        self.line_validation.set_ydata(model.Acc_validation)
-        self.ax.legend(loc='lower right')
-        self.canvas.draw_idle()
 
 class PlotCostWorker(QObject):
     finished = pyqtSignal()
@@ -815,7 +738,6 @@ class FirstLayerWeightsWidget(FirstLayerMatrixWidget):
 
     def set_matrix(self):
         self.matrix = self.main_window.model.grids_train.W[0]
-
 
 class FirstLayerGradientWidget(FirstLayerMatrixWidget):
     def __init__(self, parent=None):
