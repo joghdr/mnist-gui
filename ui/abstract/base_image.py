@@ -3,9 +3,8 @@ import numpy as np
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QGridLayout, QVBoxLayout
 from PyQt5.QtCore import QTimer
 from matplotlib.backends.backend_qt5agg import FigureCanvas
-
 from ui.abstract.button import Button
-
+from ui.abstract import plot_settings
 
 
 PLOT_TEST_WIDTH = 650

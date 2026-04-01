@@ -6,13 +6,11 @@ from ui.abstract.base_image import ImageWidget
 class ImageTestWidget(ImageWidget):
     def __init__(self, parent):
         super().__init__(parent)
-        self.actions_layout.removeWidget(self.previous_fail_button)
-        self.actions_layout.removeWidget(self.next_fail_button)
-        self.actions_layout.addWidget(QWidget(), 0, 0, 2, 2)
-        self.actions_layout.addWidget(QWidget(), 0, 6, 2, 2)
-        del self.previous_fail_button
-        del self.next_fail_button
-        del self.labels
+        self.previous_fail_button.hide()
+        self.next_fail_button.hide()
+        self.previous_fail_button.setEnabled(False)
+        self.next_fail_button.setEnabled(False)
+        self.labels = None
         self.init_data()
 
     def init_data(self):

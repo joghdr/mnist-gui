@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout
 from matplotlib.backends.backend_qt5agg import FigureCanvas, NavigationToolbar2QT
@@ -9,8 +10,8 @@ PLOT_COST_HEIGHT = 400
 class NavigationToolbarWhiteIcon(NavigationToolbar2QT):
 
     def white_image(mpl_icon_file_id):
-        image_dir = '/home/jogh/data_science/python/nn/translational_symmetry/.images'
-        return '/'.join([image_dir, mpl_icon_file_id])
+        image_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'assets', 'images')
+        return os.path.abspath(os.path.join(image_dir, mpl_icon_file_id))
 
     toolitems = (
         ('Home', 'Reset original view', white_image('home'), 'home'),
