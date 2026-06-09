@@ -4,11 +4,25 @@ Numpy-based implementation of a Multilayer Perceptron (MLP) engine and diagnosti
 
 ---
 
-## Technical Architecture & Engineering Highlights
+## Engineering Implementation Details
 * **Vectorized Batch Processing**: NumPy-based linear algebra implementation utilizing column-major memory alignment to avoid redundant copies of large grids.
 * **Augmented Feature Space**: Integration of bias-intercept terms directly into the input tensors to enable single-matrix weight transformations.
 * **Numerical Stability**: Implementation of stable Softmax (max-subtraction) and [0, 1] input scaling to maintain signal integrity.
 * **Asynchronous Task Threading**: QThread-based offloading of training cycles to maintain a non-blocking GUI.
+
+---
+
+## Planned Modernization Roadmap
+This project began as a research prototype to explore neural network mechanics. I am currently planning a refactor to move from this prototype to a more robust, maintainable architecture.
+
+### MVP Pattern Refactor
+Transitioning the codebase from an ad-hoc implementation to a formal Model-View-Presenter (MVP) pattern. This improves modularity and enables unit testing of the UI and long-term maintainability.
+  
+### UI Virtualization
+Implementing a Virtualization Pattern for weight and gradient displays. This ensures the rendering engine only processes matrices within the current viewport, eliminating UI thread blocking and ensuring a fluid experience regardless of network depth.
+
+### Renderer Optimization
+Minimize latency by replacing the Matplotlib-based rendering with a high-throughput engine.
 
 ---
 
@@ -45,7 +59,6 @@ Numpy-based implementation of a Multilayer Perceptron (MLP) engine and diagnosti
 ## Use Cases
 * **Algorithm Validation**: Testing non-standard activation functions and custom cost-function derivatives.
 * **Diagnostic Debugging**: Visualizing weight evolution in a fully transparent environment without "black box" abstractions.
-* **Performance Benchmarking**: Evaluating the efficiency of manual vectorization against compiled frameworks in a sandboxed environment.
 
 ---
 
