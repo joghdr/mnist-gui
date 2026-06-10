@@ -13,7 +13,7 @@ Numpy-based implementation of a Multilayer Perceptron (MLP) engine and diagnosti
 ---
 
 ## Planned Modernization Roadmap
-This project began as a research prototype to explore neural network mechanics. I am currently planning a refactor to move from this prototype to a more robust, maintainable architecture.
+This project began as a research prototype to explore neural network mechanics. I am currently planning a refactor to move from this prototype to a more robust, maintainable architecture. The following is a list of mayor tasks for **future** refactor.
 
 ### MVP Pattern Refactor
 Transitioning the codebase from an ad-hoc implementation to a formal Model-View-Presenter (MVP) pattern. This improves modularity and enables unit testing of the UI and long-term maintainability.
@@ -77,7 +77,7 @@ Minimize latency by replacing the Matplotlib-based rendering with a high-through
 
 3. Run the application:
   ```bash
-  python gui.py
+  python main.py
   ```
 
 ---
